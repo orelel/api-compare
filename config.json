@@ -1,0 +1,34 @@
+{
+    "rethinkdb-server": "http://tmla.aio.5.uccentral.att.com:9080",
+
+    "mongodb-server": "http://tmla.aio.9.uccentral.att.com:9080",
+
+    "iv-user": "oe530k",
+
+    "apis": [{
+            "name": "alert-history",
+            "url": "api/companies/SH1/alert/113950005/history",
+            "fields_to_ignore": ["user_id"],
+            "method": "GET"
+        },
+        {
+            "name": "case-history",
+            "url": "api/companies/SH1/case/113950005/history",
+            "fields_to_ignore": ["user_id"],
+            "method": "GET"
+        },
+        {
+            "name": "rule-history",
+            "url": "api/rules/5a71b0fcd9f8315f07476573/logs",
+            "fields_to_ignore": ["user_id"],
+            "method": "GET",
+            "data_array_path": "results.logs"
+        },
+        {
+            "name": "recent-activity",
+            "url": "api/companies/SH1/recent-activity?start_date=2018-01-30T15:46:02.913Z&end_date=2018-01-31T15:53:35.195Z&page_size=30&page=1&user_attuid=oe530k",
+            "method": "GET",
+            "data_array_path": "results"
+        }
+    ]
+}

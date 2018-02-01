@@ -1,0 +1,19 @@
+extends layout
+
+
+block content
+  h1 #{title} #{uiResult.timestamp}
+  ul
+  each val in uiResult.results
+    li
+      
+        h3 #{val.title}
+        div!= val.html
+        if val.error
+          div #{val.error}
+        else
+         unless val.html
+          div no Problem here :)          
+        
+          
+    
