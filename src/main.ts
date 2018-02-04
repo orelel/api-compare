@@ -97,6 +97,10 @@ async function getApisDiff(config) {
 
             return {
                 success: success,
+                response: {
+                    mongo: mongoResponse,
+                    rethink: rethinkResponse
+                },
                 error: error,
                 diff: delta,
                 html: html,
@@ -122,7 +126,7 @@ function saveResultsToFile(content) {
 
 function printResults(content) {
     const successFilter = (isSuccess) => record => record.success === isSuccess; 
-    const htmlFilter = (isEmpty) => isEmpty ? record => record.html === '' : record => record.html !== ''; 
+    const htmlFilter = (isEmpty) => isEmpty ? record => record.html === '' : record => record.html && record.html !== ''; 
     const errorFilter = record => record.error === true; 
     const apiFilteredByName = (filterFn) => content.results
         .filter(filterFn)

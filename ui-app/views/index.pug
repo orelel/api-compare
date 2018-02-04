@@ -2,18 +2,32 @@ extends layout
 
 
 block content
-  h1 #{title} #{uiResult.timestamp}
-  ul
-  each val in uiResult.results
-    li
+
+  header(class="w3-container w3-theme w3-padding" id="report-header")     
+    div(class="w3-center")
+      h1 Api Compare Final Report
+      h6(class="w3-xxxlarge w3-animate-bottom")  #{new Date(uiResult.timestamp).toString()}
+    div(class="w3-right")
+      a(class="w3-text-white" href="/download")
+        span.space-5 Download Report File
+        span(class="w3-xlarge")
+        i(class="fa fa-chevron-circle-down") 
+       
       
-        h3 #{val.title}
-        div!= val.html
-        if val.error
-          div #{val.error}
-        else
-         unless val.html
-          div no Problem here :)          
+  
+  ul
+    each val in uiResult.results
+      li        
+          h3.api-title #{val.title}
+          div!= val.html
+          if val.error
+            div 
+              p.red api fetch failed. Error message: 
+              span #{val.error}
+          else
+            unless val.html
+              div no Problem here :)    
+
         
           
     

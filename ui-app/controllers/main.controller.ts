@@ -11,8 +11,11 @@ export class MainController {
         }
         catch (err) {
             res.render('error', {message: 'result file not found', status:500});
-        }
+        }        
+    }
 
-        
+    public static download(req: any, res: any, next: any){
+        const file = MainApp.resultFilePath;        
+        res.download(file); // Set disposition and send it.
     }
 }

@@ -3,7 +3,7 @@
 
     "mongodb-server": "http://tmla.aio.9.uccentral.att.com:9080",
 
-    "iv-user": "oe530k",
+    "iv-user": "oe530",
 
     "apis": [{
             "name": "alert-history",
